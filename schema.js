@@ -5,11 +5,13 @@ const DataSchema = new Schema({
     location: {
         type: String,
         trim: true,
-        default: ""
+        default: "",
+        index: true
     },
     referer: {
         type: String,
-        default: ""
+        default: "",
+        index: true
     },
     dataLayer: {
         dynx_itemid: { type: String, default: "" },
@@ -20,12 +22,14 @@ const DataSchema = new Schema({
     ip: {
         type: String,
         required: true,
-        trim: true
+        trim: true,
+        index: true
     },
     uid: {
         type: String,
         trim: true,
-        default: ""
+        default: "",
+        index: true
     },
     origin: {
         type: String,

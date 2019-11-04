@@ -11,7 +11,10 @@ const port = 3232;
 
 // Connect to MongoDB
 mongoose
-    .connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .connect("mongodb://localhost:27017/node-pakage", {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    })
     .then(() => console.log("MongoDB Connected"))
     .catch(err => console.log(err));
 
