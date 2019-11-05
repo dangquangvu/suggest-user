@@ -6,14 +6,13 @@ const router = express.Router();
 const mongoose = require("mongoose");
 var bodyParser = require("body-parser");
 var morgan = require("morgan");
-var { mongoURI } = require("./config");
-const port = 3232;
 
 // Connect to MongoDB
 mongoose
     .connect("mongodb://localhost:27017/node-pakage", {
         useNewUrlParser: true,
-        useUnifiedTopology: true
+        useUnifiedTopology: true,
+        useCreateIndex: true
     })
     .then(() => console.log("MongoDB Connected"))
     .catch(err => console.log(err));
@@ -24,9 +23,9 @@ app.use(bodyParser.json());
 app.use(morgan("dev"));
 
 //config router
-app.use("/", require("./index.js"));
+app.use("/", require("./router.js"));
 
 //config server listen
-app.listen(port, () => {
+app.listen((port = 3232), () => {
     console.log("server is listening on port: " + port);
 });

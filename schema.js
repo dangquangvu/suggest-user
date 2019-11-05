@@ -35,6 +35,9 @@ const DataSchema = new Schema({
         type: String,
         required: true,
         trim: true
+    },
+    timestamp: {
+        type: Date
     }
 });
 module.exports = mongoose.model("Data", DataSchema);
