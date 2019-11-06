@@ -12,7 +12,7 @@ mongoose
     .connect("mongodb://localhost:27017/node-pakage", {
         useNewUrlParser: true,
         useUnifiedTopology: true,
-        useCreateIndex: true
+        autoIndex: false
     })
     .then(() => console.log("MongoDB Connected"))
     .catch(err => console.log(err));
@@ -23,7 +23,7 @@ app.use(bodyParser.json());
 app.use(morgan("dev"));
 
 //config router
-app.use("/", require("./router.js"));
+app.use("/", require("./routes/router.js"));
 
 //config server listen
 app.listen((port = 3232), () => {

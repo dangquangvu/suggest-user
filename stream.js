@@ -1,8 +1,7 @@
 var Promise = require("bluebird");
 var fs = Promise.promisifyAll(require("fs"));
 const path = require("path");
-var DataSchema = require("./schema");
-var pathFolder = "./logstack";
+var DataSchema = require("./models/schema");
 
 exports.getPath = async pathJoin => {
     var Path = path.join(__dirname, pathJoin);
@@ -67,8 +66,9 @@ exports.sleep = ms => {
 };
 
 exports.getAllPathDetails = async() => {
+    let pathFolderReal = "./logstack";
     let arrPathDetail = [];
-    let data = await this.listName(pathFolder);
+    let data = await this.listName(pathFolderReal);
     for (i = 0; i < data.length; i++) {
         let arrPathDatasDetail = await this.listName(data[i]);
         arrPathDetail = [...arrPathDetail, ...arrPathDatasDetail];

@@ -1,12 +1,12 @@
 const fs = require("fs");
-const stream = require("./stream");
+const stream = require("../controllers/stream");
 list = [];
 
 listDir = [];
 
 async function getNameforFile() {
     let listfileName = [];
-    const testFolder = "./logstack";
+    const testFolder = "../logstack";
     let data = stream.listName(testFolder, list);
     await data.then(item => {
         item.map(async element => {
@@ -15,4 +15,4 @@ async function getNameforFile() {
     });
     console.log(listfileName);
 }
-getNameforFile();
+//getNameforFile();

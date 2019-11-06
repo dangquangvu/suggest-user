@@ -14,4 +14,4 @@ demo = () => {
     console.log(arr1);
 };
 
-demo();
+//demo();
