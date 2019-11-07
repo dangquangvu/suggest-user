@@ -27,7 +27,7 @@ exports.save = account => {
         });
     });
 };
-exports.parseData = async data => {
+exports.parseData = async(data, DataSchema) => {
     let dataLayer = data.dataLayer;
     let location = data.location;
     let referer = data.referer;

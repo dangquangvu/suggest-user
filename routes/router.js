@@ -11,40 +11,55 @@ var Promise = require("bluebird");
 var fs = Promise.promisifyAll(require("fs"));
 router.get("/", async(req, res) => {
     let data = await controller.promiseGetAllData();
-    let promises = [];
+
     if (data) {
-        count = 0;
         for (let i = 0; i < data.length; i++) {
-            console.log(data[i][1].substring(11, 30));
+            let promises = [];
+            let name = data[i][i].substring(11, 30);
             let firstItem = data[i];
+            const Schema = mongoose.model(name, DataSchema.DataSchema);
             for (let x = 0; x < firstItem.length; x += 10) {
                 let dataX = firstItem.slice(x, x + 10);
-                stream.sleep(10);
-                let results = await promises.push(stream.getPath(dataX));
-                stream.sleep(10);
-                console.log(results);
+                await dataX.map(async item => {
+                    await promises.push(stream.getPath(item));
+                });
+                await Promise.all(promises)
+                    .then(async results => {
+                        for (let i = 0; i < results.length; i++) {
+                            await stream.sleep(100);
+                            let item = results[i].toString().split("\n");
+                            for (let j = 0; j < item.length - 1; j++) {
+                                await stream.sleep(10);
+                                let result = JSON.parse(item[j]);
+                                await stream.parseData(result, Schema);
+                            }
+                        }
+                    })
+                    .catch(err => console.log(err));
+                await stream.sleep(10);
+                promises = [];
             }
         }
     }
-    // .then(async data => {
-    //     console.log(data);
-    // let item = data.toString().split("\n");
-    // for (let i = 0; i < item.length - 1; i++) {
-    //await stream.sleep(10);
-    //     let infor = JSON.parse(item[i]);
-    //     try {
-    //         await stream.parseData(infor);
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // }
-    // console.log("end");
-    //})
-    //.catch(console.log("xxx"));
     res.send("xxx");
 });
 
 module.exports = router;
+// .then(async data => {
+//     console.log(data);
+// let item = data.toString().split("\n");
+// for (let i = 0; i < item.length - 1; i++) {
+//await stream.sleep(10);
+//     let infor = JSON.parse(item[i]);
+//     try {
+//         await stream.parseData(infor);
+//     } catch (error) {
+//         console.log(error);
+//     }
+// }
+// console.log("end");
+//})
+//.catch(console.log("xxx"));
 //let item = data.toString().split("\n");
 
 // for (let i = 0; i < item.length - 1; i++) {
