@@ -7,14 +7,30 @@ const Schema = mongoose.Schema;
 const DataSchema = require("../models/schema");
 const TankSchema = require("../models/demoSchema");
 const path = require("path");
+var Promise = require("bluebird");
+var fs = Promise.promisifyAll(require("fs"));
 router.get("/", async(req, res) => {
     let data = await controller.promiseGetAllData();
-    console.log(TankSchema.TankSchema);
+    let promises = [];
+    if (data) {
+        count = 0;
+        for (let i = 0; i < data.length; i++) {
+            console.log(data[i][1].substring(11, 30));
+            let firstItem = data[i];
+            for (let x = 0; x < firstItem.length; x += 10) {
+                let dataX = firstItem.slice(x, x + 10);
+                stream.sleep(10);
+                let results = await promises.push(stream.getPath(dataX));
+                stream.sleep(10);
+                console.log(results);
+            }
+        }
+    }
     // .then(async data => {
     //     console.log(data);
     // let item = data.toString().split("\n");
     // for (let i = 0; i < item.length - 1; i++) {
-    //     //await stream.sleep(10);
+    //await stream.sleep(10);
     //     let infor = JSON.parse(item[i]);
     //     try {
     //         await stream.parseData(infor);

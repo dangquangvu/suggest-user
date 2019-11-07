@@ -5,13 +5,26 @@ function sleep(ms) {
 }
 
 demo = () => {
-    arr1 = [];
-    arr2 = [1, 2, 3, 4];
-    arr3 = [5, 6, 7, 8];
-    arr1 = [...arr1, ...arr2];
-    console.log(arr1);
-    arr1 = [...arr1, ...arr3];
-    console.log(arr1);
+    arr = [
+        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    ];
+    count = 0;
+    for (let i = 0; i < arr.length; i++) {
+        console.log("xxx" + count++);
+        let firstItem = arr[i];
+        for (let x = 0; x < firstItem.length; x += 2) {
+            let data = firstItem.slice(x, x + 2);
+            console.log(data);
+        }
+    }
 };
 
-//demo();
+demo();

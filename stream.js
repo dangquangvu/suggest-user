@@ -70,8 +70,9 @@ exports.getAllPathDetails = async() => {
     let arrPathDetail = [];
     let data = await this.listName(pathFolderReal);
     for (i = 0; i < data.length; i++) {
-        let arrPathDatasDetail = await this.listName(data[i]);
-        arrPathDetail = [...arrPathDetail, ...arrPathDatasDetail];
+        let arrPathDatasDetail = [];
+        arrPathDatasDetail = await this.listName(data[i]);
+        arrPathDetail = arrPathDetail.concat([arrPathDatasDetail]);
     }
     return arrPathDetail;
 };

@@ -40,4 +40,6 @@ var DataSchema = new Schema({
         type: Date
     }
 });
-module.exports = mongoose.model("Data", DataSchema);
+module.exports = {
+    DataSchema
+};

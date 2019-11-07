@@ -1,5 +1,5 @@
 const fs = require("fs");
-const stream = require("../controllers/stream");
+//const stream = require("../controllers/stream");
 list = [];
 
 listDir = [];
@@ -16,3 +16,15 @@ async function getNameforFile() {
     console.log(listfileName);
 }
 //getNameforFile();
+
+demo = () => {
+    arr = [];
+    arr1 = [1, 1, 1];
+    arr2 = [2, 2, 2];
+    arr = [
+        [...arr1],
+        [...arr2]
+    ];
+    console.log(arr);
+};
+demo();
