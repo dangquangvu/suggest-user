@@ -13,6 +13,7 @@ router.get("/", async(req, res) => {
     let data = await controller.promiseGetAllData();
 
     if (data) {
+        a = 0;
         for (let i = 0; i < data.length; i++) {
             let promises = [];
             let name = data[i][i].substring(11, 30);
@@ -29,9 +30,10 @@ router.get("/", async(req, res) => {
                             await stream.sleep(100);
                             let item = results[i].toString().split("\n");
                             for (let j = 0; j < item.length - 1; j++) {
-                                await stream.sleep(10);
-                                let result = JSON.parse(item[j]);
-                                await stream.parseData(result, Schema);
+                                console.log(a++);
+                                // await stream.sleep(10);
+                                // let result = JSON.parse(item[j]);
+                                // await stream.parseData(result, Schema);
                             }
                         }
                     })
