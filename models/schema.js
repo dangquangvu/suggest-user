@@ -2,6 +2,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 var DataSchema = new Schema({
+    type: {
+        type: String,
+        trim: true
+    },
     location: {
         type: String,
         trim: true,

@@ -11,30 +11,24 @@ var Promise = require("bluebird");
 var fs = Promise.promisifyAll(require("fs"));
 router.get("/", async(req, res) => {
     let data = await controller.promiseGetAllData();
-
     if (data) {
-        a = 0;
         for (let i = 0; i < data.length; i++) {
             let promises = [];
+            let arrData = [];
             let name = data[i][i].substring(11, 30);
             let firstItem = data[i];
             const Schema = mongoose.model(name, DataSchema.DataSchema);
-            for (let x = 0; x < firstItem.length; x += 10) {
-                let dataX = firstItem.slice(x, x + 10);
+            for (let x = 0; x < firstItem.length; x += 100) {
+                let dataX = firstItem.slice(x, x + 100);
                 await dataX.map(async item => {
                     await promises.push(stream.getPath(item));
                 });
                 await Promise.all(promises)
                     .then(async results => {
                         for (let i = 0; i < results.length; i++) {
-                            await stream.sleep(100);
                             let item = results[i].toString().split("\n");
-                            for (let j = 0; j < item.length - 1; j++) {
-                                console.log(a++);
-                                // await stream.sleep(10);
-                                // let result = JSON.parse(item[j]);
-                                // await stream.parseData(result, Schema);
-                            }
+                            console.log(item.splice(-1, 1));
+                            //for (let j = 0; j < item.length - 1; j = j + 10000) {}
                         }
                     })
                     .catch(err => console.log(err));
@@ -42,6 +36,7 @@ router.get("/", async(req, res) => {
                 promises = [];
             }
         }
+        console.log("end");
     }
     res.send("xxx");
 });

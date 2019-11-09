@@ -16,6 +16,9 @@ exports.listName = async pathFolder => {
     });
     return list;
 };
+// await stream.sleep(10);
+// let result = JSON.parse(item[j]);
+// await stream.parseData(result, Schema);
 exports.save = account => {
     var action = new DataSchema(account);
     return new Promise((resolve, reject) => {
@@ -41,15 +44,17 @@ exports.parseData = async(data, DataSchema) => {
     if (referer.length > 500) {
         referer = "";
     }
-    let dataInfor = new DataSchema();
-    dataInfor.location = location;
-    dataInfor.referer = referer;
-    dataInfor.dataLayer = dataLayer;
-    dataInfor.ip = data.ip;
-    dataInfor.uid = data.uid;
-    dataInfor.origin = data.origin;
-    dataInfor.timestamp = data.timestamp;
-
+    if (data.uid) {
+        let dataInfor = new DataSchema();
+        dataInfor.type = data.type;
+        dataInfor.location = location;
+        dataInfor.referer = referer;
+        dataInfor.dataLayer = dataLayer;
+        dataInfor.ip = data.ip;
+        dataInfor.uid = data.uid;
+        dataInfor.origin = data.origin;
+        dataInfor.timestamp = data.timestamp;
+    }
     try {
         let result = await dataInfor.save();
         if (result) {
