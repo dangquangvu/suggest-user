@@ -23,22 +23,11 @@ var DataSchema = new Schema({
         dynx_totalvalue: { type: String, default: "" },
         default: {}
     },
-    ip: {
-        type: String,
-        required: true,
-        trim: true,
-        index: true
-    },
     uid: {
         type: String,
         trim: true,
         default: "",
         index: true
-    },
-    origin: {
-        type: String,
-        required: true,
-        trim: true
     },
     timestamp: {
         type: Date

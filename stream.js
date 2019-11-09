@@ -30,7 +30,8 @@ exports.save = account => {
         });
     });
 };
-exports.parseData = async(data, DataSchema) => {
+exports.parseData = (data) => {
+    let dataInfor = {}
     let dataLayer = data.dataLayer;
     let location = data.location;
     let referer = data.referer;
@@ -44,26 +45,15 @@ exports.parseData = async(data, DataSchema) => {
     if (referer.length > 500) {
         referer = "";
     }
-    if (data.uid) {
-        let dataInfor = new DataSchema();
+    if (data.uid != 'Unkown' && data.type == 'visit') {
         dataInfor.type = data.type;
         dataInfor.location = location;
         dataInfor.referer = referer;
         dataInfor.dataLayer = dataLayer;
-        dataInfor.ip = data.ip;
         dataInfor.uid = data.uid;
-        dataInfor.origin = data.origin;
         dataInfor.timestamp = data.timestamp;
     }
-    try {
-        let result = await dataInfor.save();
-        if (result) {
-            console.log("done");
-        }
-    } catch (error) {
-        console.log(error);
-        console.log(dataInfor);
-    }
+    return dataInfor;
 };
 
 exports.sleep = ms => {

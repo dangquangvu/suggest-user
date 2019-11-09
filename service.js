@@ -9,7 +9,7 @@ var morgan = require("morgan");
 
 // Connect to MongoDB
 mongoose
-    .connect("mongodb://localhost:27017/node-test", {
+    .connect("mongodb://localhost:27017/node-suggest", {
         useNewUrlParser: true,
         useUnifiedTopology: true,
         autoIndex: false

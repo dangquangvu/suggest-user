@@ -27,8 +27,13 @@ router.get("/", async(req, res) => {
                     .then(async results => {
                         for (let i = 0; i < results.length; i++) {
                             let item = results[i].toString().split("\n");
-                            console.log(item.splice(-1, 1));
-                            //for (let j = 0; j < item.length - 1; j = j + 10000) {}
+                            for (let j = 0; j < item.length - 1; j = j + 1) {
+                                let result = JSON.parse(item[j]);
+                                let dataFilter = stream.parseData(result);
+                                console.log(dataFilter, 11);
+                                arrData.push(dataFilter);
+                            }
+                            arrData = [];
                         }
                     })
                     .catch(err => console.log(err));
@@ -42,26 +47,3 @@ router.get("/", async(req, res) => {
 });
 
 module.exports = router;
-// .then(async data => {
-//     console.log(data);
-// let item = data.toString().split("\n");
-// for (let i = 0; i < item.length - 1; i++) {
-//await stream.sleep(10);
-//     let infor = JSON.parse(item[i]);
-//     try {
-//         await stream.parseData(infor);
-//     } catch (error) {
-//         console.log(error);
-//     }
-// }
-// console.log("end");
-//})
-//.catch(console.log("xxx"));
-//let item = data.toString().split("\n");
-
-// for (let i = 0; i < item.length - 1; i++) {
-//     //await stream.sleep(10);
-// let infor = JSON.parse(item[i]);
-// await stream.parseData(infor);
-// }
-// console.log("end");
