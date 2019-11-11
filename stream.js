@@ -30,28 +30,39 @@ exports.save = account => {
         });
     });
 };
-exports.parseData = (data) => {
-    let dataInfor = {}
+exports.parseData = data => {
+    let dataInfor = {};
     let dataLayer = data.dataLayer;
     let location = data.location;
     let referer = data.referer;
+    var res = location.substring(24);
     if (dataLayer == undefined) {
         dataLayer = {};
     }
-    if (location.length > 500) {
-        console.log;
+    if (location.length > 700) {
         location = "";
     }
-    if (referer.length > 500) {
+    if (referer.length > 700) {
         referer = "";
     }
-    if (data.uid != 'Unkown' && data.type == 'visit') {
-        dataInfor.type = data.type;
+
+    if (data.uid.length != "Unkown" && data.type == "visit") {
+        if (location) {
+            n = location.indexOf("?");
+            location = location.substring(0, n);
+            let l = location.indexOf("/");
+            let l1 = location.indexOf("/", parseInt(l + 3));
+            location = location.substring(l1 + 1);
+        }
+        if (referer) {
+            n = referer.indexOf("?");
+            referer = referer.substring(0, n);
+            let l = location.indexOf("/");
+            let l1 = location.indexOf("/", parseInt(l + 3));
+            location = location.substring(l1 + 1);
+        }
         dataInfor.location = location;
         dataInfor.referer = referer;
-        dataInfor.dataLayer = dataLayer;
-        dataInfor.uid = data.uid;
-        dataInfor.timestamp = data.timestamp;
     }
     return dataInfor;
 };

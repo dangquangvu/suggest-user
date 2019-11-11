@@ -5,7 +5,7 @@ const stream = require("../stream");
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const DataSchema = require("../models/schema");
-const TankSchema = require("../models/demoSchema");
+//const TankSchema = require("../models/demoSchema");
 const path = require("path");
 var Promise = require("bluebird");
 var fs = Promise.promisifyAll(require("fs"));
@@ -30,9 +30,15 @@ router.get("/", async(req, res) => {
                             for (let j = 0; j < item.length - 1; j = j + 1) {
                                 let result = JSON.parse(item[j]);
                                 let dataFilter = stream.parseData(result);
-                                console.log(dataFilter, 11);
                                 arrData.push(dataFilter);
                             }
+
+                            Tank.create(array, (err, _data) => {
+                                console.log("done");
+                                if (err) {
+                                    console.log(err);
+                                } else console.log(_data);
+                            });
                             arrData = [];
                         }
                     })

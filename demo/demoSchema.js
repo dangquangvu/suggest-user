@@ -23,18 +23,6 @@ demo = () => {
             console.log("all done!!!");
         }
     );
-    // var array = [{ name: "jelly bean" }, { name: "snickers" }];
-
-    // async.eachSeries(
-    //     array,
-    //     function(task, asyncdone) {
-    //         console.log(task);
-    //     },
-    //     function(err) {
-    //         if (err) console.log(err);
-    //         else console.log("done");
-    //     }
-    // );
 };
 
 demo();
