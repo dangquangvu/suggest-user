@@ -149,8 +149,12 @@ demo = async() => {
         "https://simthanglong.vn/sim-so-dep-vinaphone-p3"
     ];
     console.time("time");
-    arr.map(item => {
+    arr.forEach(item => {
         n = item.indexOf("?");
+        var nl = item.search("-p");
+        if (nl != -1) {
+            var item = item.substring(0, nl) + item.substring(nl + 3, item.length);
+        }
         //console.log(n);
         if (n != -1) {
             item = item.substring(0, n);
@@ -161,7 +165,8 @@ demo = async() => {
         a.push(item);
     });
     console.timeEnd("time");
-    // console.log(a);
+
+    console.log(a);
     // console.log(a);
     //const list = [1, 2, 3, 4, 5];
     // const functionWithPromise = item => {

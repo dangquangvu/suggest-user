@@ -17,9 +17,10 @@ async function getNameforFile() {
 //getNameforFile();
 
 demo = () => {
-    arr = [1, 2, 3, 4, 5, 6, 7, 8];
-    arr.splice(-1);
-    console.log(arr);
+    a = "";
+    console.log(parseInt(+a));
+    let data = parseInt("0969867808");
+    console.log(data);
 };
 demo();
 // if (data) {

@@ -4,25 +4,25 @@ var async = require("async");
 
 demo = () => {
     var array = [{ name: "jelly bean" }, { name: "snickers" }];
-
-    Tank.create(array, (err, _data) => {
+    let name = "Tankers";
+    mongoose.model(name, Tank).create(array, (err, _data) => {
         console.log("done");
         if (err) {
             console.log(err);
         } else console.log(_data);
     });
-    async.each(
-        files,
-        function(file, outCb) {
-            fs.readFile(file, "utf8", (err, data) => {
-                console.log(file);
-                outCb();
-            });
-        },
-        function(err) {
-            console.log("all done!!!");
-        }
-    );
+    // async.each(
+    //     files,
+    //     function(file, outCb) {
+    //         fs.readFile(file, "utf8", (err, data) => {
+    //             console.log(file);
+    //             outCb();
+    //         });
+    //     },
+    //     function(err) {
+    //         console.log("all done!!!");
+    //     }
+    // );
 };
 
 demo();

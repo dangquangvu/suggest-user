@@ -27,23 +27,35 @@ router.get("/", async(req, res) => {
                     .then(async results => {
                         for (let i = 0; i < results.length; i++) {
                             let item = results[i].toString().split("\n");
-                            for (let j = 0; j < item.length - 1; j = j + 1) {
+                            for (let j = 0; j < item.length - 1; j++) {
                                 let result = JSON.parse(item[j]);
                                 let dataFilter = stream.parseData(result);
+                                if (dataFilter.hasOwnProperty("location") == true) {
+                                    if (dataFilter.location != "" && dataFilter.referer != "") {
+                                        console.log(dataFilter);
+                                    } else if (
+                                        parseInt(+dataFilter.location) == "NaN" &&
+                                        parseInt(+dataFilter.referer) == "NaN"
+                                    ) {
+                                        console.log(dataFilter, 11);
+                                    }
+                                } else {
+                                    //console.log("x");
+                                }
+                                //console.log(dataFilter);
                                 arrData.push(dataFilter);
                             }
-
-                            Tank.create(array, (err, _data) => {
-                                console.log("done");
-                                if (err) {
-                                    console.log(err);
-                                } else console.log(_data);
-                            });
+                            // mongoose
+                            //     .model(name, DataSchema)
+                            //     .insertMany(arrData, (err, _data) => {
+                            //         if (err) {
+                            //             console.log(err);
+                            //         } else console.log("x");
+                            //     });
                             arrData = [];
                         }
                     })
                     .catch(err => console.log(err));
-                await stream.sleep(10);
                 promises = [];
             }
         }

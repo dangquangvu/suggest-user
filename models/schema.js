@@ -11,6 +11,7 @@ var DataSchema = new Schema({
     referer: {
         type: String,
         default: "",
+        trim: true,
         index: true
     }
 });
