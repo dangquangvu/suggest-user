@@ -3,13 +3,18 @@ const mongoose = require("mongoose");
 var async = require("async");
 
 demo = () => {
-    var array = [{ name: "jelly bean" }, { name: "snickers" }];
+    var array = [
+        { name: "jelly bean" },
+        { name: "snickers" },
+        { name: "jelly bean" },
+        { name: "snickers" }
+    ];
     let name = "Tankers";
-    mongoose.model(name, Tank).create(array, (err, _data) => {
-        console.log("done");
+    let Tank = mongoose.model(name, TankSchema);
+    Tank.insertMany(array, (err, _data) => {
         if (err) {
             console.log(err);
-        } else console.log(_data);
+        } else console.log("x");
     });
     // async.each(
     //     files,

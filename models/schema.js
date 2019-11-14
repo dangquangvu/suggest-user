@@ -5,14 +5,21 @@ var DataSchema = new Schema({
     location: {
         type: String,
         trim: true,
-        default: "",
-        index: true
+        default: ""
     },
     referer: {
         type: String,
         default: "",
-        trim: true,
-        index: true
+        trim: true
+    }
+});
+DataSchema.index({
+    location: "text",
+    referer: "text"
+}, {
+    weights: {
+        location: 1,
+        referer: 1
     }
 });
 module.exports = {

@@ -17,10 +17,46 @@ async function getNameforFile() {
 //getNameforFile();
 
 demo = () => {
-    a = "";
-    console.log(parseInt(+a));
-    let data = parseInt("0969867808");
-    console.log(data);
+    referer = "https://simthanglong.vn/68/sim-tu-quy-p8.html";
+    if (referer.length > 700) {
+        referer = "";
+    }
+    let timsimreferer = referer.lastIndexOf("sim/");
+    let orderString = referer.lastIndexOf("#/orders");
+    let sim_gia_re = referer.lastIndexOf("sim-gia-re");
+    let sim_tra_gop = referer.lastIndexOf("sim-tra-gop");
+    let bai_viet = referer.lastIndexOf("bai-viet/");
+    let xem = referer.lastIndexOf("xem-");
+    if (
+        timsimreferer == -1 &&
+        orderString == -1 &&
+        sim_gia_re == -1 &&
+        sim_tra_gop == -1 &&
+        bai_viet == -1 &&
+        xem == -1
+    ) {
+        if (referer) {
+            console.log("vvv");
+            let html = referer.lastIndexOf(".html");
+            let l = referer.indexOf("/");
+            let l1 = referer.indexOf("/", parseInt(l + 3));
+            referer = referer.substring(l1 + 1);
+            let _p = referer.lastIndexOf("-p");
+            let n = referer.indexOf("?");
+            if (n != -1) {
+                referer = referer.substring(0, n);
+            }
+
+            if (html != -1) {
+                referer = referer.substring(0, html);
+            }
+            if (_p > 12) {
+                referer = referer.substring(0, _p);
+                console.log(referer);
+            }
+            console.log(referer);
+        }
+    }
 };
 demo();
 // if (data) {

@@ -37,9 +37,7 @@ exports.parseData = data => {
     let location = data.location;
     let referer = data.referer;
     var res = location.substring(24);
-    if (dataLayer == undefined) {
-        dataLayer = {};
-    }
+
     if (location.length > 700) {
         location = "";
     }
@@ -52,6 +50,7 @@ exports.parseData = data => {
     let sim_gia_re = location.lastIndexOf("sim-gia-re");
     let sim_tra_gop = location.lastIndexOf("sim-tra-gop");
     let bai_viet = location.lastIndexOf("bai-viet/");
+    let xem = location.lastIndexOf("xem-");
     if (
         data.uid.length != "Unkown" &&
         data.type == "visit" &&
@@ -60,45 +59,42 @@ exports.parseData = data => {
         sim_gia_re == -1 &&
         sim_tra_gop == -1 &&
         bai_viet == -1 &&
-        timsimreferer == -1
+        timsimreferer == -1 &&
+        xem == -1
     ) {
         if (location) {
-            let _p = location.lastIndexOf("-p");
-            if (
-                location.lastIndexOf("sim-loc-phat") != -1 ||
-                location.lastIndexOf("sim-phong-thuy")
-            ) {}
             let html = location.lastIndexOf(".html");
+            let l = location.indexOf("/");
+            let l1 = location.indexOf("/", parseInt(l + 3));
+            location = location.substring(l1 + 1);
+            let _p = location.lastIndexOf("-p");
             let n = location.indexOf("?");
             if (n != -1) {
                 location = location.substring(0, n);
             }
-            if (_p != -1) {
-                location = location.substring(0, _p);
-            }
             if (html != -1) {
                 location = location.substring(0, html);
             }
-            let l = location.indexOf("/");
-            let l1 = location.indexOf("/", parseInt(l + 3));
-            location = location.substring(l1 + 1);
+            if (_p > 12) {
+                location = location.substring(0, _p);
+            }
         }
         if (referer) {
-            let _p = referer.lastIndexOf("-p");
             let html = referer.lastIndexOf(".html");
+            let l = referer.indexOf("/");
+            let l1 = referer.indexOf("/", parseInt(l + 3));
+            referer = referer.substring(l1 + 1);
+            let _p = referer.lastIndexOf("-p");
             let n = referer.indexOf("?");
             if (n != -1) {
                 referer = referer.substring(0, n);
             }
-            if (_p != -1) {
-                referer = referer.substring(0, _p);
-            }
             if (html != -1) {
                 referer = referer.substring(0, html);
             }
-            let l = referer.indexOf("/");
-            let l1 = referer.indexOf("/", parseInt(l + 3));
-            referer = referer.substring(l1 + 1);
+            if (_p > 12) {
+                referer = referer.substring(0, _p);
+            }
         }
         dataInfor.location = location;
         dataInfor.referer = referer;
@@ -109,6 +105,11 @@ exports.parseData = data => {
 
 exports.sleep = ms => {
     return new Promise(resolve => setTimeout(resolve, ms));
+};
+exports.handlerName = name => {
+    //logstash - 2019 - 09 - 24
+    var regex = /[^a-z0-9]/g;
+    return name.replace(regex, "");
 };
 
 exports.getAllPathDetails = async() => {
@@ -122,3 +123,4 @@ exports.getAllPathDetails = async() => {
     }
     return arrPathDetail;
 };
+exports.counter = async() => {};

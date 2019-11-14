@@ -9,12 +9,25 @@ var morgan = require("morgan");
 
 // Connect to MongoDB
 mongoose
-    .connect("mongodb://localhost:27017/node-suggest", {
+    .connect("mongodb://localhost:27017/data_suggest", {
         useNewUrlParser: true,
         useUnifiedTopology: true,
         autoIndex: false
     })
-    .then(() => console.log("MongoDB Connected"))
+    .then(async data => {
+        let listCollectionsName = [];
+        await mongoose.connection.db.listCollections().toArray((err, data) => {
+            if (err) {
+                console.log(err);
+            } else {
+                data.map(item => {
+                    listCollectionsName.push(item.name);
+                });
+            }
+        });
+        exports.listCollectionsName = listCollectionsName;
+        console.log("MongoDB Connected");
+    })
     .catch(err => console.log(err));
 
 //config

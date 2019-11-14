@@ -10,186 +10,64 @@ processF = item => {
     item = item.substring(l1 + 1);
 };
 demo = async() => {
-    let a = [];
-    arr = [
-        "https://simthanglong.vn/sim-so-dep-mobifone/1111?&utm_source=Google&utm_medium=Search&utm_campaign=SearchTest&utm_content=SimMangMobi&gclid=CjwKCAjw2qHsBRAGEiwAMbPoDLs4-q1Ugwx1hKqbs0wxY7TBiiX1fcU6K_GoH4f3DRaCxH37rFTOFBoCTNcQAvD_BwE",
-        "https://simthanglong.vn/?utm_source=coccoc_context&utm_medium=CPC&utm_campaign=%5BKeywords%5D%20T%E1%BB%AB%20kh%C3%B3a%20ch%C3%ADnh%20Sim%20s%E1%BB%91%20%C4%91%E1%BA%B9p%20%2D%20Sim%20th%C4%83ng%20long&utm_term=sim%20s%C3%B4%20%C4%91%E1%BA%B9p&utm_content=2200924",
-        "https://simthanglong.vn/sim-so-dep-vinaphone-p3",
-        "https://simthanglong.vn/sim-so-dep-mobifone/1111?&utm_source=Google&utm_medium=Search&utm_campaign=SearchTest&utm_content=SimMangMobi&gclid=CjwKCAjw2qHsBRAGEiwAMbPoDLs4-q1Ugwx1hKqbs0wxY7TBiiX1fcU6K_GoH4f3DRaCxH37rFTOFBoCTNcQAvD_BwE",
-        "https://simthanglong.vn/?utm_source=coccoc_context&utm_medium=CPC&utm_campaign=%5BKeywords%5D%20T%E1%BB%AB%20kh%C3%B3a%20ch%C3%ADnh%20Sim%20s%E1%BB%91%20%C4%91%E1%BA%B9p%20%2D%20Sim%20th%C4%83ng%20long&utm_term=sim%20s%C3%B4%20%C4%91%E1%BA%B9p&utm_content=2200924",
-        "https://simthanglong.vn/sim-so-dep-vinaphone-p3",
-        "https://simthanglong.vn/sim-so-dep-mobifone/1111?&utm_source=Google&utm_medium=Search&utm_campaign=SearchTest&utm_content=SimMangMobi&gclid=CjwKCAjw2qHsBRAGEiwAMbPoDLs4-q1Ugwx1hKqbs0wxY7TBiiX1fcU6K_GoH4f3DRaCxH37rFTOFBoCTNcQAvD_BwE",
-        "https://simthanglong.vn/?utm_source=coccoc_context&utm_medium=CPC&utm_campaign=%5BKeywords%5D%20T%E1%BB%AB%20kh%C3%B3a%20ch%C3%ADnh%20Sim%20s%E1%BB%91%20%C4%91%E1%BA%B9p%20%2D%20Sim%20th%C4%83ng%20long&utm_term=sim%20s%C3%B4%20%C4%91%E1%BA%B9p&utm_content=2200924",
-        "https://simthanglong.vn/sim-so-dep-vinaphone-p3",
-        "https://simthanglong.vn/sim-so-dep-mobifone/1111?&utm_source=Google&utm_medium=Search&utm_campaign=SearchTest&utm_content=SimMangMobi&gclid=CjwKCAjw2qHsBRAGEiwAMbPoDLs4-q1Ugwx1hKqbs0wxY7TBiiX1fcU6K_GoH4f3DRaCxH37rFTOFBoCTNcQAvD_BwE",
-        "https://simthanglong.vn/?utm_source=coccoc_context&utm_medium=CPC&utm_campaign=%5BKeywords%5D%20T%E1%BB%AB%20kh%C3%B3a%20ch%C3%ADnh%20Sim%20s%E1%BB%91%20%C4%91%E1%BA%B9p%20%2D%20Sim%20th%C4%83ng%20long&utm_term=sim%20s%C3%B4%20%C4%91%E1%BA%B9p&utm_content=2200924",
-        "https://simthanglong.vn/sim-so-dep-vinaphone-p3",
-        "https://simthanglong.vn/sim-so-dep-mobifone/1111?&utm_source=Google&utm_medium=Search&utm_campaign=SearchTest&utm_content=SimMangMobi&gclid=CjwKCAjw2qHsBRAGEiwAMbPoDLs4-q1Ugwx1hKqbs0wxY7TBiiX1fcU6K_GoH4f3DRaCxH37rFTOFBoCTNcQAvD_BwE",
-        "https://simthanglong.vn/?utm_source=coccoc_context&utm_medium=CPC&utm_campaign=%5BKeywords%5D%20T%E1%BB%AB%20kh%C3%B3a%20ch%C3%ADnh%20Sim%20s%E1%BB%91%20%C4%91%E1%BA%B9p%20%2D%20Sim%20th%C4%83ng%20long&utm_term=sim%20s%C3%B4%20%C4%91%E1%BA%B9p&utm_content=2200924",
-        "https://simthanglong.vn/sim-so-dep-vinaphone-p3",
-        "https://simthanglong.vn/sim-so-dep-mobifone/1111?&utm_source=Google&utm_medium=Search&utm_campaign=SearchTest&utm_content=SimMangMobi&gclid=CjwKCAjw2qHsBRAGEiwAMbPoDLs4-q1Ugwx1hKqbs0wxY7TBiiX1fcU6K_GoH4f3DRaCxH37rFTOFBoCTNcQAvD_BwE",
-        "https://simthanglong.vn/?utm_source=coccoc_context&utm_medium=CPC&utm_campaign=%5BKeywords%5D%20T%E1%BB%AB%20kh%C3%B3a%20ch%C3%ADnh%20Sim%20s%E1%BB%91%20%C4%91%E1%BA%B9p%20%2D%20Sim%20th%C4%83ng%20long&utm_term=sim%20s%C3%B4%20%C4%91%E1%BA%B9p&utm_content=2200924",
-        "https://simthanglong.vn/sim-so-dep-vinaphone-p3",
-        "https://simthanglong.vn/sim-so-dep-mobifone/1111?&utm_source=Google&utm_medium=Search&utm_campaign=SearchTest&utm_content=SimMangMobi&gclid=CjwKCAjw2qHsBRAGEiwAMbPoDLs4-q1Ugwx1hKqbs0wxY7TBiiX1fcU6K_GoH4f3DRaCxH37rFTOFBoCTNcQAvD_BwE",
-        "https://simthanglong.vn/?utm_source=coccoc_context&utm_medium=CPC&utm_campaign=%5BKeywords%5D%20T%E1%BB%AB%20kh%C3%B3a%20ch%C3%ADnh%20Sim%20s%E1%BB%91%20%C4%91%E1%BA%B9p%20%2D%20Sim%20th%C4%83ng%20long&utm_term=sim%20s%C3%B4%20%C4%91%E1%BA%B9p&utm_content=2200924",
-        "https://simthanglong.vn/sim-so-dep-vinaphone-p3",
-        "https://simthanglong.vn/sim-so-dep-mobifone/1111?&utm_source=Google&utm_medium=Search&utm_campaign=SearchTest&utm_content=SimMangMobi&gclid=CjwKCAjw2qHsBRAGEiwAMbPoDLs4-q1Ugwx1hKqbs0wxY7TBiiX1fcU6K_GoH4f3DRaCxH37rFTOFBoCTNcQAvD_BwE",
-        "https://simthanglong.vn/?utm_source=coccoc_context&utm_medium=CPC&utm_campaign=%5BKeywords%5D%20T%E1%BB%AB%20kh%C3%B3a%20ch%C3%ADnh%20Sim%20s%E1%BB%91%20%C4%91%E1%BA%B9p%20%2D%20Sim%20th%C4%83ng%20long&utm_term=sim%20s%C3%B4%20%C4%91%E1%BA%B9p&utm_content=2200924",
-        "https://simthanglong.vn/sim-so-dep-vinaphone-p3",
-        "https://simthanglong.vn/sim-so-dep-mobifone/1111?&utm_source=Google&utm_medium=Search&utm_campaign=SearchTest&utm_content=SimMangMobi&gclid=CjwKCAjw2qHsBRAGEiwAMbPoDLs4-q1Ugwx1hKqbs0wxY7TBiiX1fcU6K_GoH4f3DRaCxH37rFTOFBoCTNcQAvD_BwE",
-        "https://simthanglong.vn/?utm_source=coccoc_context&utm_medium=CPC&utm_campaign=%5BKeywords%5D%20T%E1%BB%AB%20kh%C3%B3a%20ch%C3%ADnh%20Sim%20s%E1%BB%91%20%C4%91%E1%BA%B9p%20%2D%20Sim%20th%C4%83ng%20long&utm_term=sim%20s%C3%B4%20%C4%91%E1%BA%B9p&utm_content=2200924",
-        "https://simthanglong.vn/sim-so-dep-vinaphone-p3",
-        "https://simthanglong.vn/sim-so-dep-mobifone/1111?&utm_source=Google&utm_medium=Search&utm_campaign=SearchTest&utm_content=SimMangMobi&gclid=CjwKCAjw2qHsBRAGEiwAMbPoDLs4-q1Ugwx1hKqbs0wxY7TBiiX1fcU6K_GoH4f3DRaCxH37rFTOFBoCTNcQAvD_BwE",
-        "https://simthanglong.vn/?utm_source=coccoc_context&utm_medium=CPC&utm_campaign=%5BKeywords%5D%20T%E1%BB%AB%20kh%C3%B3a%20ch%C3%ADnh%20Sim%20s%E1%BB%91%20%C4%91%E1%BA%B9p%20%2D%20Sim%20th%C4%83ng%20long&utm_term=sim%20s%C3%B4%20%C4%91%E1%BA%B9p&utm_content=2200924",
-        "https://simthanglong.vn/sim-so-dep-vinaphone-p3",
-        "https://simthanglong.vn/sim-so-dep-mobifone/1111?&utm_source=Google&utm_medium=Search&utm_campaign=SearchTest&utm_content=SimMangMobi&gclid=CjwKCAjw2qHsBRAGEiwAMbPoDLs4-q1Ugwx1hKqbs0wxY7TBiiX1fcU6K_GoH4f3DRaCxH37rFTOFBoCTNcQAvD_BwE",
-        "https://simthanglong.vn/?utm_source=coccoc_context&utm_medium=CPC&utm_campaign=%5BKeywords%5D%20T%E1%BB%AB%20kh%C3%B3a%20ch%C3%ADnh%20Sim%20s%E1%BB%91%20%C4%91%E1%BA%B9p%20%2D%20Sim%20th%C4%83ng%20long&utm_term=sim%20s%C3%B4%20%C4%91%E1%BA%B9p&utm_content=2200924",
-        "https://simthanglong.vn/sim-so-dep-vinaphone-p3",
-        "https://simthanglong.vn/sim-so-dep-mobifone/1111?&utm_source=Google&utm_medium=Search&utm_campaign=SearchTest&utm_content=SimMangMobi&gclid=CjwKCAjw2qHsBRAGEiwAMbPoDLs4-q1Ugwx1hKqbs0wxY7TBiiX1fcU6K_GoH4f3DRaCxH37rFTOFBoCTNcQAvD_BwE",
-        "https://simthanglong.vn/?utm_source=coccoc_context&utm_medium=CPC&utm_campaign=%5BKeywords%5D%20T%E1%BB%AB%20kh%C3%B3a%20ch%C3%ADnh%20Sim%20s%E1%BB%91%20%C4%91%E1%BA%B9p%20%2D%20Sim%20th%C4%83ng%20long&utm_term=sim%20s%C3%B4%20%C4%91%E1%BA%B9p&utm_content=2200924",
-        "https://simthanglong.vn/sim-so-dep-vinaphone-p3",
-        "https://simthanglong.vn/sim-so-dep-mobifone/1111?&utm_source=Google&utm_medium=Search&utm_campaign=SearchTest&utm_content=SimMangMobi&gclid=CjwKCAjw2qHsBRAGEiwAMbPoDLs4-q1Ugwx1hKqbs0wxY7TBiiX1fcU6K_GoH4f3DRaCxH37rFTOFBoCTNcQAvD_BwE",
-        "https://simthanglong.vn/?utm_source=coccoc_context&utm_medium=CPC&utm_campaign=%5BKeywords%5D%20T%E1%BB%AB%20kh%C3%B3a%20ch%C3%ADnh%20Sim%20s%E1%BB%91%20%C4%91%E1%BA%B9p%20%2D%20Sim%20th%C4%83ng%20long&utm_term=sim%20s%C3%B4%20%C4%91%E1%BA%B9p&utm_content=2200924",
-        "https://simthanglong.vn/sim-so-dep-vinaphone-p3",
-        "https://simthanglong.vn/sim-so-dep-mobifone/1111?&utm_source=Google&utm_medium=Search&utm_campaign=SearchTest&utm_content=SimMangMobi&gclid=CjwKCAjw2qHsBRAGEiwAMbPoDLs4-q1Ugwx1hKqbs0wxY7TBiiX1fcU6K_GoH4f3DRaCxH37rFTOFBoCTNcQAvD_BwE",
-        "https://simthanglong.vn/?utm_source=coccoc_context&utm_medium=CPC&utm_campaign=%5BKeywords%5D%20T%E1%BB%AB%20kh%C3%B3a%20ch%C3%ADnh%20Sim%20s%E1%BB%91%20%C4%91%E1%BA%B9p%20%2D%20Sim%20th%C4%83ng%20long&utm_term=sim%20s%C3%B4%20%C4%91%E1%BA%B9p&utm_content=2200924",
-        "https://simthanglong.vn/sim-so-dep-vinaphone-p3",
-        "https://simthanglong.vn/sim-so-dep-mobifone/1111?&utm_source=Google&utm_medium=Search&utm_campaign=SearchTest&utm_content=SimMangMobi&gclid=CjwKCAjw2qHsBRAGEiwAMbPoDLs4-q1Ugwx1hKqbs0wxY7TBiiX1fcU6K_GoH4f3DRaCxH37rFTOFBoCTNcQAvD_BwE",
-        "https://simthanglong.vn/?utm_source=coccoc_context&utm_medium=CPC&utm_campaign=%5BKeywords%5D%20T%E1%BB%AB%20kh%C3%B3a%20ch%C3%ADnh%20Sim%20s%E1%BB%91%20%C4%91%E1%BA%B9p%20%2D%20Sim%20th%C4%83ng%20long&utm_term=sim%20s%C3%B4%20%C4%91%E1%BA%B9p&utm_content=2200924",
-        "https://simthanglong.vn/sim-so-dep-vinaphone-p3",
-        "https://simthanglong.vn/sim-so-dep-mobifone/1111?&utm_source=Google&utm_medium=Search&utm_campaign=SearchTest&utm_content=SimMangMobi&gclid=CjwKCAjw2qHsBRAGEiwAMbPoDLs4-q1Ugwx1hKqbs0wxY7TBiiX1fcU6K_GoH4f3DRaCxH37rFTOFBoCTNcQAvD_BwE",
-        "https://simthanglong.vn/?utm_source=coccoc_context&utm_medium=CPC&utm_campaign=%5BKeywords%5D%20T%E1%BB%AB%20kh%C3%B3a%20ch%C3%ADnh%20Sim%20s%E1%BB%91%20%C4%91%E1%BA%B9p%20%2D%20Sim%20th%C4%83ng%20long&utm_term=sim%20s%C3%B4%20%C4%91%E1%BA%B9p&utm_content=2200924",
-        "https://simthanglong.vn/sim-so-dep-vinaphone-p3",
-        "https://simthanglong.vn/sim-so-dep-mobifone/1111?&utm_source=Google&utm_medium=Search&utm_campaign=SearchTest&utm_content=SimMangMobi&gclid=CjwKCAjw2qHsBRAGEiwAMbPoDLs4-q1Ugwx1hKqbs0wxY7TBiiX1fcU6K_GoH4f3DRaCxH37rFTOFBoCTNcQAvD_BwE",
-        "https://simthanglong.vn/?utm_source=coccoc_context&utm_medium=CPC&utm_campaign=%5BKeywords%5D%20T%E1%BB%AB%20kh%C3%B3a%20ch%C3%ADnh%20Sim%20s%E1%BB%91%20%C4%91%E1%BA%B9p%20%2D%20Sim%20th%C4%83ng%20long&utm_term=sim%20s%C3%B4%20%C4%91%E1%BA%B9p&utm_content=2200924",
-        "https://simthanglong.vn/sim-so-dep-vinaphone-p3",
-        "https://simthanglong.vn/sim-so-dep-mobifone/1111?&utm_source=Google&utm_medium=Search&utm_campaign=SearchTest&utm_content=SimMangMobi&gclid=CjwKCAjw2qHsBRAGEiwAMbPoDLs4-q1Ugwx1hKqbs0wxY7TBiiX1fcU6K_GoH4f3DRaCxH37rFTOFBoCTNcQAvD_BwE",
-        "https://simthanglong.vn/?utm_source=coccoc_context&utm_medium=CPC&utm_campaign=%5BKeywords%5D%20T%E1%BB%AB%20kh%C3%B3a%20ch%C3%ADnh%20Sim%20s%E1%BB%91%20%C4%91%E1%BA%B9p%20%2D%20Sim%20th%C4%83ng%20long&utm_term=sim%20s%C3%B4%20%C4%91%E1%BA%B9p&utm_content=2200924",
-        "https://simthanglong.vn/sim-so-dep-vinaphone-p3",
-        "https://simthanglong.vn/sim-so-dep-mobifone/1111?&utm_source=Google&utm_medium=Search&utm_campaign=SearchTest&utm_content=SimMangMobi&gclid=CjwKCAjw2qHsBRAGEiwAMbPoDLs4-q1Ugwx1hKqbs0wxY7TBiiX1fcU6K_GoH4f3DRaCxH37rFTOFBoCTNcQAvD_BwE",
-        "https://simthanglong.vn/?utm_source=coccoc_context&utm_medium=CPC&utm_campaign=%5BKeywords%5D%20T%E1%BB%AB%20kh%C3%B3a%20ch%C3%ADnh%20Sim%20s%E1%BB%91%20%C4%91%E1%BA%B9p%20%2D%20Sim%20th%C4%83ng%20long&utm_term=sim%20s%C3%B4%20%C4%91%E1%BA%B9p&utm_content=2200924",
-        "https://simthanglong.vn/sim-so-dep-vinaphone-p3",
-        "https://simthanglong.vn/sim-so-dep-mobifone/1111?&utm_source=Google&utm_medium=Search&utm_campaign=SearchTest&utm_content=SimMangMobi&gclid=CjwKCAjw2qHsBRAGEiwAMbPoDLs4-q1Ugwx1hKqbs0wxY7TBiiX1fcU6K_GoH4f3DRaCxH37rFTOFBoCTNcQAvD_BwE",
-        "https://simthanglong.vn/?utm_source=coccoc_context&utm_medium=CPC&utm_campaign=%5BKeywords%5D%20T%E1%BB%AB%20kh%C3%B3a%20ch%C3%ADnh%20Sim%20s%E1%BB%91%20%C4%91%E1%BA%B9p%20%2D%20Sim%20th%C4%83ng%20long&utm_term=sim%20s%C3%B4%20%C4%91%E1%BA%B9p&utm_content=2200924",
-        "https://simthanglong.vn/sim-so-dep-vinaphone-p3",
-        "https://simthanglong.vn/sim-so-dep-mobifone/1111?&utm_source=Google&utm_medium=Search&utm_campaign=SearchTest&utm_content=SimMangMobi&gclid=CjwKCAjw2qHsBRAGEiwAMbPoDLs4-q1Ugwx1hKqbs0wxY7TBiiX1fcU6K_GoH4f3DRaCxH37rFTOFBoCTNcQAvD_BwE",
-        "https://simthanglong.vn/?utm_source=coccoc_context&utm_medium=CPC&utm_campaign=%5BKeywords%5D%20T%E1%BB%AB%20kh%C3%B3a%20ch%C3%ADnh%20Sim%20s%E1%BB%91%20%C4%91%E1%BA%B9p%20%2D%20Sim%20th%C4%83ng%20long&utm_term=sim%20s%C3%B4%20%C4%91%E1%BA%B9p&utm_content=2200924",
-        "https://simthanglong.vn/sim-so-dep-vinaphone-p3",
-        "https://simthanglong.vn/sim-so-dep-mobifone/1111?&utm_source=Google&utm_medium=Search&utm_campaign=SearchTest&utm_content=SimMangMobi&gclid=CjwKCAjw2qHsBRAGEiwAMbPoDLs4-q1Ugwx1hKqbs0wxY7TBiiX1fcU6K_GoH4f3DRaCxH37rFTOFBoCTNcQAvD_BwE",
-        "https://simthanglong.vn/?utm_source=coccoc_context&utm_medium=CPC&utm_campaign=%5BKeywords%5D%20T%E1%BB%AB%20kh%C3%B3a%20ch%C3%ADnh%20Sim%20s%E1%BB%91%20%C4%91%E1%BA%B9p%20%2D%20Sim%20th%C4%83ng%20long&utm_term=sim%20s%C3%B4%20%C4%91%E1%BA%B9p&utm_content=2200924",
-        "https://simthanglong.vn/sim-so-dep-vinaphone-p3",
-        "https://simthanglong.vn/sim-so-dep-mobifone/1111?&utm_source=Google&utm_medium=Search&utm_campaign=SearchTest&utm_content=SimMangMobi&gclid=CjwKCAjw2qHsBRAGEiwAMbPoDLs4-q1Ugwx1hKqbs0wxY7TBiiX1fcU6K_GoH4f3DRaCxH37rFTOFBoCTNcQAvD_BwE",
-        "https://simthanglong.vn/?utm_source=coccoc_context&utm_medium=CPC&utm_campaign=%5BKeywords%5D%20T%E1%BB%AB%20kh%C3%B3a%20ch%C3%ADnh%20Sim%20s%E1%BB%91%20%C4%91%E1%BA%B9p%20%2D%20Sim%20th%C4%83ng%20long&utm_term=sim%20s%C3%B4%20%C4%91%E1%BA%B9p&utm_content=2200924",
-        "https://simthanglong.vn/sim-so-dep-vinaphone-p3",
-        "https://simthanglong.vn/sim-so-dep-mobifone/1111?&utm_source=Google&utm_medium=Search&utm_campaign=SearchTest&utm_content=SimMangMobi&gclid=CjwKCAjw2qHsBRAGEiwAMbPoDLs4-q1Ugwx1hKqbs0wxY7TBiiX1fcU6K_GoH4f3DRaCxH37rFTOFBoCTNcQAvD_BwE",
-        "https://simthanglong.vn/?utm_source=coccoc_context&utm_medium=CPC&utm_campaign=%5BKeywords%5D%20T%E1%BB%AB%20kh%C3%B3a%20ch%C3%ADnh%20Sim%20s%E1%BB%91%20%C4%91%E1%BA%B9p%20%2D%20Sim%20th%C4%83ng%20long&utm_term=sim%20s%C3%B4%20%C4%91%E1%BA%B9p&utm_content=2200924",
-        "https://simthanglong.vn/sim-so-dep-vinaphone-p3",
-        "https://simthanglong.vn/sim-so-dep-mobifone/1111?&utm_source=Google&utm_medium=Search&utm_campaign=SearchTest&utm_content=SimMangMobi&gclid=CjwKCAjw2qHsBRAGEiwAMbPoDLs4-q1Ugwx1hKqbs0wxY7TBiiX1fcU6K_GoH4f3DRaCxH37rFTOFBoCTNcQAvD_BwE",
-        "https://simthanglong.vn/?utm_source=coccoc_context&utm_medium=CPC&utm_campaign=%5BKeywords%5D%20T%E1%BB%AB%20kh%C3%B3a%20ch%C3%ADnh%20Sim%20s%E1%BB%91%20%C4%91%E1%BA%B9p%20%2D%20Sim%20th%C4%83ng%20long&utm_term=sim%20s%C3%B4%20%C4%91%E1%BA%B9p&utm_content=2200924",
-        "https://simthanglong.vn/sim-so-dep-vinaphone-p3",
-        "https://simthanglong.vn/sim-so-dep-mobifone/1111?&utm_source=Google&utm_medium=Search&utm_campaign=SearchTest&utm_content=SimMangMobi&gclid=CjwKCAjw2qHsBRAGEiwAMbPoDLs4-q1Ugwx1hKqbs0wxY7TBiiX1fcU6K_GoH4f3DRaCxH37rFTOFBoCTNcQAvD_BwE",
-        "https://simthanglong.vn/?utm_source=coccoc_context&utm_medium=CPC&utm_campaign=%5BKeywords%5D%20T%E1%BB%AB%20kh%C3%B3a%20ch%C3%ADnh%20Sim%20s%E1%BB%91%20%C4%91%E1%BA%B9p%20%2D%20Sim%20th%C4%83ng%20long&utm_term=sim%20s%C3%B4%20%C4%91%E1%BA%B9p&utm_content=2200924",
-        "https://simthanglong.vn/sim-so-dep-vinaphone-p3",
-        "https://simthanglong.vn/sim-so-dep-mobifone/1111?&utm_source=Google&utm_medium=Search&utm_campaign=SearchTest&utm_content=SimMangMobi&gclid=CjwKCAjw2qHsBRAGEiwAMbPoDLs4-q1Ugwx1hKqbs0wxY7TBiiX1fcU6K_GoH4f3DRaCxH37rFTOFBoCTNcQAvD_BwE",
-        "https://simthanglong.vn/?utm_source=coccoc_context&utm_medium=CPC&utm_campaign=%5BKeywords%5D%20T%E1%BB%AB%20kh%C3%B3a%20ch%C3%ADnh%20Sim%20s%E1%BB%91%20%C4%91%E1%BA%B9p%20%2D%20Sim%20th%C4%83ng%20long&utm_term=sim%20s%C3%B4%20%C4%91%E1%BA%B9p&utm_content=2200924",
-        "https://simthanglong.vn/sim-so-dep-vinaphone-p3",
-        "https://simthanglong.vn/sim-so-dep-mobifone/1111?&utm_source=Google&utm_medium=Search&utm_campaign=SearchTest&utm_content=SimMangMobi&gclid=CjwKCAjw2qHsBRAGEiwAMbPoDLs4-q1Ugwx1hKqbs0wxY7TBiiX1fcU6K_GoH4f3DRaCxH37rFTOFBoCTNcQAvD_BwE",
-        "https://simthanglong.vn/?utm_source=coccoc_context&utm_medium=CPC&utm_campaign=%5BKeywords%5D%20T%E1%BB%AB%20kh%C3%B3a%20ch%C3%ADnh%20Sim%20s%E1%BB%91%20%C4%91%E1%BA%B9p%20%2D%20Sim%20th%C4%83ng%20long&utm_term=sim%20s%C3%B4%20%C4%91%E1%BA%B9p&utm_content=2200924",
-        "https://simthanglong.vn/sim-so-dep-vinaphone-p3",
-        "https://simthanglong.vn/sim-so-dep-mobifone/1111?&utm_source=Google&utm_medium=Search&utm_campaign=SearchTest&utm_content=SimMangMobi&gclid=CjwKCAjw2qHsBRAGEiwAMbPoDLs4-q1Ugwx1hKqbs0wxY7TBiiX1fcU6K_GoH4f3DRaCxH37rFTOFBoCTNcQAvD_BwE",
-        "https://simthanglong.vn/?utm_source=coccoc_context&utm_medium=CPC&utm_campaign=%5BKeywords%5D%20T%E1%BB%AB%20kh%C3%B3a%20ch%C3%ADnh%20Sim%20s%E1%BB%91%20%C4%91%E1%BA%B9p%20%2D%20Sim%20th%C4%83ng%20long&utm_term=sim%20s%C3%B4%20%C4%91%E1%BA%B9p&utm_content=2200924",
-        "https://simthanglong.vn/sim-so-dep-vinaphone-p3",
-        "https://simthanglong.vn/sim-so-dep-mobifone/1111?&utm_source=Google&utm_medium=Search&utm_campaign=SearchTest&utm_content=SimMangMobi&gclid=CjwKCAjw2qHsBRAGEiwAMbPoDLs4-q1Ugwx1hKqbs0wxY7TBiiX1fcU6K_GoH4f3DRaCxH37rFTOFBoCTNcQAvD_BwE",
-        "https://simthanglong.vn/?utm_source=coccoc_context&utm_medium=CPC&utm_campaign=%5BKeywords%5D%20T%E1%BB%AB%20kh%C3%B3a%20ch%C3%ADnh%20Sim%20s%E1%BB%91%20%C4%91%E1%BA%B9p%20%2D%20Sim%20th%C4%83ng%20long&utm_term=sim%20s%C3%B4%20%C4%91%E1%BA%B9p&utm_content=2200924",
-        "https://simthanglong.vn/sim-so-dep-vinaphone-p3",
-        "https://simthanglong.vn/sim-so-dep-mobifone/1111?&utm_source=Google&utm_medium=Search&utm_campaign=SearchTest&utm_content=SimMangMobi&gclid=CjwKCAjw2qHsBRAGEiwAMbPoDLs4-q1Ugwx1hKqbs0wxY7TBiiX1fcU6K_GoH4f3DRaCxH37rFTOFBoCTNcQAvD_BwE",
-        "https://simthanglong.vn/?utm_source=coccoc_context&utm_medium=CPC&utm_campaign=%5BKeywords%5D%20T%E1%BB%AB%20kh%C3%B3a%20ch%C3%ADnh%20Sim%20s%E1%BB%91%20%C4%91%E1%BA%B9p%20%2D%20Sim%20th%C4%83ng%20long&utm_term=sim%20s%C3%B4%20%C4%91%E1%BA%B9p&utm_content=2200924",
-        "https://simthanglong.vn/sim-so-dep-vinaphone-p3",
-        "https://simthanglong.vn/sim-so-dep-mobifone/1111?&utm_source=Google&utm_medium=Search&utm_campaign=SearchTest&utm_content=SimMangMobi&gclid=CjwKCAjw2qHsBRAGEiwAMbPoDLs4-q1Ugwx1hKqbs0wxY7TBiiX1fcU6K_GoH4f3DRaCxH37rFTOFBoCTNcQAvD_BwE",
-        "https://simthanglong.vn/?utm_source=coccoc_context&utm_medium=CPC&utm_campaign=%5BKeywords%5D%20T%E1%BB%AB%20kh%C3%B3a%20ch%C3%ADnh%20Sim%20s%E1%BB%91%20%C4%91%E1%BA%B9p%20%2D%20Sim%20th%C4%83ng%20long&utm_term=sim%20s%C3%B4%20%C4%91%E1%BA%B9p&utm_content=2200924",
-        "https://simthanglong.vn/sim-so-dep-vinaphone-p3",
-        "https://simthanglong.vn/sim-so-dep-mobifone/1111?&utm_source=Google&utm_medium=Search&utm_campaign=SearchTest&utm_content=SimMangMobi&gclid=CjwKCAjw2qHsBRAGEiwAMbPoDLs4-q1Ugwx1hKqbs0wxY7TBiiX1fcU6K_GoH4f3DRaCxH37rFTOFBoCTNcQAvD_BwE",
-        "https://simthanglong.vn/?utm_source=coccoc_context&utm_medium=CPC&utm_campaign=%5BKeywords%5D%20T%E1%BB%AB%20kh%C3%B3a%20ch%C3%ADnh%20Sim%20s%E1%BB%91%20%C4%91%E1%BA%B9p%20%2D%20Sim%20th%C4%83ng%20long&utm_term=sim%20s%C3%B4%20%C4%91%E1%BA%B9p&utm_content=2200924",
-        "https://simthanglong.vn/sim-so-dep-vinaphone-p3",
-        "https://simthanglong.vn/sim-so-dep-mobifone/1111?&utm_source=Google&utm_medium=Search&utm_campaign=SearchTest&utm_content=SimMangMobi&gclid=CjwKCAjw2qHsBRAGEiwAMbPoDLs4-q1Ugwx1hKqbs0wxY7TBiiX1fcU6K_GoH4f3DRaCxH37rFTOFBoCTNcQAvD_BwE",
-        "https://simthanglong.vn/?utm_source=coccoc_context&utm_medium=CPC&utm_campaign=%5BKeywords%5D%20T%E1%BB%AB%20kh%C3%B3a%20ch%C3%ADnh%20Sim%20s%E1%BB%91%20%C4%91%E1%BA%B9p%20%2D%20Sim%20th%C4%83ng%20long&utm_term=sim%20s%C3%B4%20%C4%91%E1%BA%B9p&utm_content=2200924",
-        "https://simthanglong.vn/sim-so-dep-vinaphone-p3",
-        "https://simthanglong.vn/sim-so-dep-mobifone/1111?&utm_source=Google&utm_medium=Search&utm_campaign=SearchTest&utm_content=SimMangMobi&gclid=CjwKCAjw2qHsBRAGEiwAMbPoDLs4-q1Ugwx1hKqbs0wxY7TBiiX1fcU6K_GoH4f3DRaCxH37rFTOFBoCTNcQAvD_BwE",
-        "https://simthanglong.vn/?utm_source=coccoc_context&utm_medium=CPC&utm_campaign=%5BKeywords%5D%20T%E1%BB%AB%20kh%C3%B3a%20ch%C3%ADnh%20Sim%20s%E1%BB%91%20%C4%91%E1%BA%B9p%20%2D%20Sim%20th%C4%83ng%20long&utm_term=sim%20s%C3%B4%20%C4%91%E1%BA%B9p&utm_content=2200924",
-        "https://simthanglong.vn/sim-so-dep-vinaphone-p3",
-        "https://simthanglong.vn/sim-so-dep-mobifone/1111?&utm_source=Google&utm_medium=Search&utm_campaign=SearchTest&utm_content=SimMangMobi&gclid=CjwKCAjw2qHsBRAGEiwAMbPoDLs4-q1Ugwx1hKqbs0wxY7TBiiX1fcU6K_GoH4f3DRaCxH37rFTOFBoCTNcQAvD_BwE",
-        "https://simthanglong.vn/?utm_source=coccoc_context&utm_medium=CPC&utm_campaign=%5BKeywords%5D%20T%E1%BB%AB%20kh%C3%B3a%20ch%C3%ADnh%20Sim%20s%E1%BB%91%20%C4%91%E1%BA%B9p%20%2D%20Sim%20th%C4%83ng%20long&utm_term=sim%20s%C3%B4%20%C4%91%E1%BA%B9p&utm_content=2200924",
-        "https://simthanglong.vn/sim-so-dep-vinaphone-p3",
-        "https://simthanglong.vn/sim-so-dep-mobifone/1111?&utm_source=Google&utm_medium=Search&utm_campaign=SearchTest&utm_content=SimMangMobi&gclid=CjwKCAjw2qHsBRAGEiwAMbPoDLs4-q1Ugwx1hKqbs0wxY7TBiiX1fcU6K_GoH4f3DRaCxH37rFTOFBoCTNcQAvD_BwE",
-        "https://simthanglong.vn/?utm_source=coccoc_context&utm_medium=CPC&utm_campaign=%5BKeywords%5D%20T%E1%BB%AB%20kh%C3%B3a%20ch%C3%ADnh%20Sim%20s%E1%BB%91%20%C4%91%E1%BA%B9p%20%2D%20Sim%20th%C4%83ng%20long&utm_term=sim%20s%C3%B4%20%C4%91%E1%BA%B9p&utm_content=2200924",
-        "https://simthanglong.vn/sim-so-dep-vinaphone-p3",
-        "https://simthanglong.vn/sim-so-dep-mobifone/1111?&utm_source=Google&utm_medium=Search&utm_campaign=SearchTest&utm_content=SimMangMobi&gclid=CjwKCAjw2qHsBRAGEiwAMbPoDLs4-q1Ugwx1hKqbs0wxY7TBiiX1fcU6K_GoH4f3DRaCxH37rFTOFBoCTNcQAvD_BwE",
-        "https://simthanglong.vn/?utm_source=coccoc_context&utm_medium=CPC&utm_campaign=%5BKeywords%5D%20T%E1%BB%AB%20kh%C3%B3a%20ch%C3%ADnh%20Sim%20s%E1%BB%91%20%C4%91%E1%BA%B9p%20%2D%20Sim%20th%C4%83ng%20long&utm_term=sim%20s%C3%B4%20%C4%91%E1%BA%B9p&utm_content=2200924",
-        "https://simthanglong.vn/sim-so-dep-vinaphone-p3",
-        "https://simthanglong.vn/sim-so-dep-mobifone/1111?&utm_source=Google&utm_medium=Search&utm_campaign=SearchTest&utm_content=SimMangMobi&gclid=CjwKCAjw2qHsBRAGEiwAMbPoDLs4-q1Ugwx1hKqbs0wxY7TBiiX1fcU6K_GoH4f3DRaCxH37rFTOFBoCTNcQAvD_BwE",
-        "https://simthanglong.vn/?utm_source=coccoc_context&utm_medium=CPC&utm_campaign=%5BKeywords%5D%20T%E1%BB%AB%20kh%C3%B3a%20ch%C3%ADnh%20Sim%20s%E1%BB%91%20%C4%91%E1%BA%B9p%20%2D%20Sim%20th%C4%83ng%20long&utm_term=sim%20s%C3%B4%20%C4%91%E1%BA%B9p&utm_content=2200924",
-        "https://simthanglong.vn/sim-so-dep-vinaphone-p3",
-        "https://simthanglong.vn/sim-so-dep-mobifone/1111?&utm_source=Google&utm_medium=Search&utm_campaign=SearchTest&utm_content=SimMangMobi&gclid=CjwKCAjw2qHsBRAGEiwAMbPoDLs4-q1Ugwx1hKqbs0wxY7TBiiX1fcU6K_GoH4f3DRaCxH37rFTOFBoCTNcQAvD_BwE",
-        "https://simthanglong.vn/?utm_source=coccoc_context&utm_medium=CPC&utm_campaign=%5BKeywords%5D%20T%E1%BB%AB%20kh%C3%B3a%20ch%C3%ADnh%20Sim%20s%E1%BB%91%20%C4%91%E1%BA%B9p%20%2D%20Sim%20th%C4%83ng%20long&utm_term=sim%20s%C3%B4%20%C4%91%E1%BA%B9p&utm_content=2200924",
-        "https://simthanglong.vn/sim-so-dep-vinaphone-p3",
-        "https://simthanglong.vn/sim-so-dep-mobifone/1111?&utm_source=Google&utm_medium=Search&utm_campaign=SearchTest&utm_content=SimMangMobi&gclid=CjwKCAjw2qHsBRAGEiwAMbPoDLs4-q1Ugwx1hKqbs0wxY7TBiiX1fcU6K_GoH4f3DRaCxH37rFTOFBoCTNcQAvD_BwE",
-        "https://simthanglong.vn/?utm_source=coccoc_context&utm_medium=CPC&utm_campaign=%5BKeywords%5D%20T%E1%BB%AB%20kh%C3%B3a%20ch%C3%ADnh%20Sim%20s%E1%BB%91%20%C4%91%E1%BA%B9p%20%2D%20Sim%20th%C4%83ng%20long&utm_term=sim%20s%C3%B4%20%C4%91%E1%BA%B9p&utm_content=2200924",
-        "https://simthanglong.vn/sim-so-dep-vinaphone-p3",
-        "https://simthanglong.vn/sim-so-dep-mobifone/1111?&utm_source=Google&utm_medium=Search&utm_campaign=SearchTest&utm_content=SimMangMobi&gclid=CjwKCAjw2qHsBRAGEiwAMbPoDLs4-q1Ugwx1hKqbs0wxY7TBiiX1fcU6K_GoH4f3DRaCxH37rFTOFBoCTNcQAvD_BwE",
-        "https://simthanglong.vn/?utm_source=coccoc_context&utm_medium=CPC&utm_campaign=%5BKeywords%5D%20T%E1%BB%AB%20kh%C3%B3a%20ch%C3%ADnh%20Sim%20s%E1%BB%91%20%C4%91%E1%BA%B9p%20%2D%20Sim%20th%C4%83ng%20long&utm_term=sim%20s%C3%B4%20%C4%91%E1%BA%B9p&utm_content=2200924",
-        "https://simthanglong.vn/sim-so-dep-vinaphone-p3",
-        "https://simthanglong.vn/sim-so-dep-mobifone/1111?&utm_source=Google&utm_medium=Search&utm_campaign=SearchTest&utm_content=SimMangMobi&gclid=CjwKCAjw2qHsBRAGEiwAMbPoDLs4-q1Ugwx1hKqbs0wxY7TBiiX1fcU6K_GoH4f3DRaCxH37rFTOFBoCTNcQAvD_BwE",
-        "https://simthanglong.vn/?utm_source=coccoc_context&utm_medium=CPC&utm_campaign=%5BKeywords%5D%20T%E1%BB%AB%20kh%C3%B3a%20ch%C3%ADnh%20Sim%20s%E1%BB%91%20%C4%91%E1%BA%B9p%20%2D%20Sim%20th%C4%83ng%20long&utm_term=sim%20s%C3%B4%20%C4%91%E1%BA%B9p&utm_content=2200924",
-        "https://simthanglong.vn/sim-so-dep-vinaphone-p3",
-        "https://simthanglong.vn/sim-so-dep-mobifone/1111?&utm_source=Google&utm_medium=Search&utm_campaign=SearchTest&utm_content=SimMangMobi&gclid=CjwKCAjw2qHsBRAGEiwAMbPoDLs4-q1Ugwx1hKqbs0wxY7TBiiX1fcU6K_GoH4f3DRaCxH37rFTOFBoCTNcQAvD_BwE",
-        "https://simthanglong.vn/?utm_source=coccoc_context&utm_medium=CPC&utm_campaign=%5BKeywords%5D%20T%E1%BB%AB%20kh%C3%B3a%20ch%C3%ADnh%20Sim%20s%E1%BB%91%20%C4%91%E1%BA%B9p%20%2D%20Sim%20th%C4%83ng%20long&utm_term=sim%20s%C3%B4%20%C4%91%E1%BA%B9p&utm_content=2200924",
-        "https://simthanglong.vn/sim-so-dep-vinaphone-p3",
-        "https://simthanglong.vn/sim-so-dep-mobifone/1111?&utm_source=Google&utm_medium=Search&utm_campaign=SearchTest&utm_content=SimMangMobi&gclid=CjwKCAjw2qHsBRAGEiwAMbPoDLs4-q1Ugwx1hKqbs0wxY7TBiiX1fcU6K_GoH4f3DRaCxH37rFTOFBoCTNcQAvD_BwE",
-        "https://simthanglong.vn/?utm_source=coccoc_context&utm_medium=CPC&utm_campaign=%5BKeywords%5D%20T%E1%BB%AB%20kh%C3%B3a%20ch%C3%ADnh%20Sim%20s%E1%BB%91%20%C4%91%E1%BA%B9p%20%2D%20Sim%20th%C4%83ng%20long&utm_term=sim%20s%C3%B4%20%C4%91%E1%BA%B9p&utm_content=2200924",
-        "https://simthanglong.vn/sim-so-dep-vinaphone-p3"
-    ];
-    console.time("time");
-    arr.forEach(item => {
-        n = item.indexOf("?");
-        var nl = item.search("-p");
-        if (nl != -1) {
-            var item = item.substring(0, nl) + item.substring(nl + 3, item.length);
-        }
-        //console.log(n);
-        if (n != -1) {
-            item = item.substring(0, n);
-        }
-        let l = item.indexOf("/");
-        let l1 = item.indexOf("/", parseInt(l + 3));
-        item = item.substring(l1);
-        a.push(item);
-    });
-    console.timeEnd("time");
-
-    console.log(a);
-    // console.log(a);
-    //const list = [1, 2, 3, 4, 5];
-    // const functionWithPromise = item => {
-    //     n = item.indexOf("?");
-    //     if (n != -1) {
-    //         item = item.substring(0, n);
-    //     }
-    //     let l = item.indexOf("/");
-    //     let l1 = item.indexOf("/", parseInt(l + 3));
-    //     item = item.substring(l1 + 1);
-    //     return Promise.resolve(item);
-    // };
-    // const anAsyncFunction = async item => {
-    //     return functionWithPromise(item);
-    // };
-
-    // const getData = async() => {
-    //     return Promise.all(arr.map(item => anAsyncFunction(item)));
-    // };
-    // console.time("time");
-    // getData().then(data => {
-    //     //console.log(data);
-    //     console.timeEnd("time");
-    // });
+    // logstash - 2019 - 09 - 24;
+    logstash20190924
+        .find({ $text: { $search: "text to look for" } }, { score: { $meta: "textScore" } })
+        .sort({ score: { $meta: "textScore" } });
 };
 demo();
+// if (data) {
+//     let handler = async() => {
+//         for (let i = 0; i < data.length; i++) {
+//             let promises = [];
+//             let arrData = [];
+//             let name = data[i][i].substring(11, 30);
+//             let handlerName = stream.handlerName(name);
+//             let firstItem = data[i];
+//             const Schema = mongoose.model(name, DataSchema.DataSchema);
+//             for (let x = 0; x < firstItem.length; x += 100) {
+//                 let dataX = firstItem.slice(x, x + 100);
+//                 await dataX.map(async item => {
+//                     await promises.push(stream.getPath(item));
+//                 });
+//                 await Promise.all(promises)
+//                     .then(async results => {
+//                         for (let i = 0; i < results.length; i++) {
+//                             let item = results[i].toString().split("\n");
+//                             for (let j = 0; j < item.length - 1; j++) {
+//                                 let result = JSON.parse(item[j]);
+//                                 let dataFilter = stream.parseData(result);
+//                                 if (dataFilter.hasOwnProperty("location") == true) {
+//                                     if (dataFilter.location != "" && dataFilter.referer != "") {
+//                                         arrData.push(dataFilter);
+//                                     }
+//                                     //console.log("y");
+//                                 }
+//                             }
+//                             let Data = mongoose.model(handlerName, DataSchema.DataSchema);
+//                             Data.insertMany(arrData, (err, _data) => {
+//                                 if (err) {
+//                                     console.log(err);
+//                                 } else console.log("x");
+//                             });
+//                             arrData = [];
+//                         }
+//                     })
+//                     .catch(err => console.log(err));
+//                 promises = [];
+//             }
+//         }
+//     };
+//     await handler(data);
+//     console.log("end");
+// }
+
+// const Schema = mongoose.model("logstash20190924", DataSchema.DataSchema);
+// console.time("timer");
+// let count = await Schema.find({
+//     location: { $regex: "sim-theo-gia/duoi-500-nghin", $options: "i" }
+// }).countDocuments();
+
+// console.log(count);
+// console.timeEnd("timer");
+// res.send("xxx");
