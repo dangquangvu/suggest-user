@@ -12,25 +12,12 @@ var Promise = require("bluebird");
 var fs = Promise.promisifyAll(require("fs"));
 router.get("/", async(req, res) => {
     let list = listCollectionsName.listCollectionsName;
-    let handler = async() => {
-        let counter = 0;
-        for (let i = 0; i < list; i++) {
-            const Schema = mongoose.model(list[i], DataSchema.DataSchema);
-            let count = await Schema.find({
-                location: { $regex: "sim-phong-thuy", $options: "i" }
-            }).countDocuments();
-            counter = counter + count;
-            console.log(counter);
-        }
-        return counter;
-    };
-    let data = await handler();
-    console.log(data, 111);
+    let counter = 0;
+    let location = "sim-theo-gia/tu-500-nghin-den-1-trieu";
+    console.time("timer");
+    let data = await stream.handlerLocation(list, location);
+    console.timeEnd("timer");
+    console.log(data);
     res.send("xxx");
 });
 module.exports = router;
-//{ location: { $regex: /sim-phong-thuy/, $options: "i" } }
-// $text: {
-//     $search: /sim-phong-thuy/,
-//     $options: "i"
-// }

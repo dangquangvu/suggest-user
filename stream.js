@@ -1,8 +1,9 @@
 var Promise = require("bluebird");
 var fs = Promise.promisifyAll(require("fs"));
 const path = require("path");
-var DataSchema = require("./models/schema");
 var streamInner = require("./stream");
+const mongoose = require("mongoose");
+const DataSchema = require("./models/schema");
 exports.getPath = async pathJoin => {
     var Path = path.join(__dirname, pathJoin);
     return await fs.readFileAsync(Path, { encoding: "utf-8" });
@@ -123,4 +124,26 @@ exports.getAllPathDetails = async() => {
     }
     return arrPathDetail;
 };
-exports.counter = async() => {};
+exports.handlerLocation = async(list, location) => {
+    let counter = 0;
+    for (let i = 0; i < list.length; i++) {
+        const Schema = mongoose.model(list[i], DataSchema.DataSchema);
+        let count = await Schema.find({
+            location: { $regex: location, $options: "i" }
+        }).countDocuments();
+        counter += count;
+    }
+    return counter;
+};
+exports.handlerReferer = async(list, location, referer) => {
+    let counter = 0;
+    for (let i = 0; i < list.length; i++) {
+        const Schema = mongoose.model(list[i], DataSchema.DataSchema);
+        let count = await Schema.find({
+            location: { $regex: location, $options: "i" },
+            referer: { $regex: referer, $options: "i" }
+        }).countDocuments();
+        counter += count;
+    }
+    return counter;
+};
