@@ -4,9 +4,9 @@ const path = require("path");
 var streamInner = require("./stream");
 const mongoose = require("mongoose");
 const DataSchema = require("./models/schema");
-exports.getPath = async pathJoin => {
+exports.getPath = pathJoin => {
     var Path = path.join(__dirname, pathJoin);
-    return await fs.readFileAsync(Path, { encoding: "utf-8" });
+    return fs.readFileAsync(Path, { encoding: "utf-8" });
 };
 
 exports.listName = async pathFolder => {
@@ -38,7 +38,6 @@ exports.parseData = data => {
     let location = data.location;
     let referer = data.referer;
     var res = location.substring(24);
-
     if (location.length > 700) {
         location = "";
     }
@@ -48,7 +47,6 @@ exports.parseData = data => {
     let timsimlocation = location.lastIndexOf("sim/");
     let timsimreferer = referer.lastIndexOf("sim/");
     let orderString = location.lastIndexOf("#/orders");
-    let sim_gia_re = location.lastIndexOf("sim-gia-re");
     let sim_tra_gop = location.lastIndexOf("sim-tra-gop");
     let bai_viet = location.lastIndexOf("bai-viet/");
     let xem = location.lastIndexOf("xem-");
@@ -57,44 +55,84 @@ exports.parseData = data => {
         data.type == "visit" &&
         timsimlocation == -1 &&
         orderString == -1 &&
-        sim_gia_re == -1 &&
         sim_tra_gop == -1 &&
         bai_viet == -1 &&
         timsimreferer == -1 &&
         xem == -1
     ) {
         if (location) {
-            let html = location.lastIndexOf(".html");
+            if (location.indexOf("topsim.vn/sim-gia-re") != -1) {
+                location = "";
+            }
             let l = location.indexOf("/");
             let l1 = location.indexOf("/", parseInt(l + 3));
             location = location.substring(l1 + 1);
-            let _p = location.lastIndexOf("-p");
+
             let n = location.indexOf("?");
             if (n != -1) {
                 location = location.substring(0, n);
             }
+            let html = location.indexOf(".html");
             if (html != -1) {
                 location = location.substring(0, html);
             }
-            if (_p > 12) {
-                location = location.substring(0, _p);
+            let _p = location.lastIndexOf("-p");
+
+            if (
+                location.indexOf("sim-doi") != -1 ||
+                location.indexOf("82/sim-vip") != -1 ||
+                location.indexOf("sim-gia-re") != -1
+            ) {
+                if (_p > 9) {
+                    location = location.substring(0, _p);
+                }
+            }
+            if (
+                location.indexOf("sim-doi") == -1 ||
+                location.indexOf("82/sim-vip") == -1 ||
+                location.indexOf("sim-gia-re") == -1
+            ) {
+                if (_p > 11) {
+                    location = location.substring(0, _p);
+                }
             }
         }
+
         if (referer) {
-            let html = referer.lastIndexOf(".html");
+            if (referer.indexOf("topsim.vn/sim-gia-re") != -1) {
+                referer = "";
+            }
             let l = referer.indexOf("/");
             let l1 = referer.indexOf("/", parseInt(l + 3));
             referer = referer.substring(l1 + 1);
-            let _p = referer.lastIndexOf("-p");
+
             let n = referer.indexOf("?");
             if (n != -1) {
                 referer = referer.substring(0, n);
             }
+            let html = referer.indexOf(".html");
             if (html != -1) {
                 referer = referer.substring(0, html);
             }
-            if (_p > 12) {
-                referer = referer.substring(0, _p);
+            let _p = referer.lastIndexOf("-p");
+
+            if (
+                referer.indexOf("sim-doi") != -1 ||
+                referer.indexOf("82/sim-vip") != -1 ||
+                referer.indexOf("sim-gia-re") != -1
+            ) {
+                if (_p > 9) {
+                    referer = referer.substring(0, _p);
+                }
+            }
+            if (
+                referer.indexOf("sim-doi") == -1 ||
+                referer.indexOf("82/sim-vip") == -1 ||
+                referer.indexOf("sim-gia-re") == -1
+            ) {
+                if (_p > 11) {
+                    referer = referer.substring(0, _p);
+                }
             }
         }
         dataInfor.location = location;
