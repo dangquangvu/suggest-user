@@ -17,7 +17,7 @@ async function getNameforFile() {
 //getNameforFile();
 
 demo = () => {
-    referer = "https://simthanglong.vn/68/sim-tu-quy-p8.html";
+    referer = "https://simthanglong.vn/sim-nam-sinh-1982-p2";
     if (referer.length > 700) {
         referer = "";
     }

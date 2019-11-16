@@ -14,10 +14,13 @@ router.get("/", async(req, res) => {
     let list = listCollectionsName.listCollectionsName;
     let counter = 0;
     let location = "sim-theo-gia/tu-500-nghin-den-1-trieu";
+    let referer = "sim-nam-sinh-1996";
     console.time("timer");
-    let data = await stream.handlerLocation(list, location);
+    let data = await stream.handlerReferer(list, location, referer);
+    let data2 = await stream.handlerLocation(list, referer);
     console.timeEnd("timer");
     console.log(data);
+    console.log(data2);
     res.send("xxx");
 });
 module.exports = router;
