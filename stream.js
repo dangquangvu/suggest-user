@@ -3,7 +3,7 @@ var fs = Promise.promisifyAll(require("fs"));
 const path = require("path");
 var streamInner = require("./stream");
 const mongoose = require("mongoose");
-const DataSchema = require("./models/schema");
+const { Room, DataSchema } = require("./models");
 exports.getPath = pathJoin => {
     var Path = path.join(__dirname, pathJoin);
     return fs.readFileAsync(Path, { encoding: "utf-8" });
@@ -165,7 +165,7 @@ exports.getAllPathDetails = async() => {
 exports.handlerLocation = async(list, location) => {
     let counter = 0;
     for (let i = 0; i < list.length; i++) {
-        const Schema = mongoose.model(list[i], DataSchema.DataSchema);
+        const Schema = mongoose.model(list[i], DataSchema);
         let count = await Schema.find({
             location: { $regex: location, $options: "i" }
         }).countDocuments();
@@ -175,13 +175,63 @@ exports.handlerLocation = async(list, location) => {
 };
 exports.handlerReferer = async(list, location, referer) => {
     let counter = 0;
-    for (let i = 0; i < list.length; i++) {
-        const Schema = mongoose.model(list[i], DataSchema.DataSchema);
-        let count = await Schema.find({
-            location: { $regex: location, $options: "i" },
-            referer: { $regex: referer, $options: "i" }
-        }).countDocuments();
-        counter += count;
-    }
-    return counter;
+    return new Promise(async resolve => {
+        for (let i = 0; i < list.length; i++) {
+            const Schema = mongoose.model(list[i], DataSchema);
+            let count = await Schema.find({
+                location: { $regex: location, $options: "i" },
+                referer: { $regex: referer, $options: "i" }
+            }).countDocuments();
+            counter += count;
+        }
+        return resolve(counter);
+    });
 };
+exports.findAll = function(Schema) {
+    return new Promise((resolve, reject) => {
+        Schema.find({}).exec((err, result) => {
+            if (err) {
+                return reject(err);
+            }
+            return resolve(result);
+        });
+    });
+};
+exports.findLocationRegex = function(Schema, where) {
+    return new Promise(async(resolve, reject) => {
+        let query = { location: { $regex: where, $options: "i" } };
+        await Schema.find(query).exec((err, result) => {
+            if (err) {
+                return reject(err);
+            }
+            return resolve(result);
+        });
+    });
+};
+
+exports.findBothData = function(Schema, location, referer) {
+    return new Promise(async(resolve, reject) => {
+        let query = {
+            location: { $regex: location, $option: "i" },
+            referer: { $regex: referer, $option: "i" }
+        };
+        await Schema.find(query).exec((err, result) => {
+            if (err) {
+                return reject(err);
+            }
+            return resolve(result);
+        });
+    });
+};
+exports.updateDocument = function(newDoc) {
+    return new Promise((resolve, reject) => {
+        Room.updateOne({ pathFull: newDoc.pathFull }, newDoc, function(err) {
+            if (err) {
+                return reject(err);
+            }
+            return resolve(true);
+        });
+    });
+};
+//location: { $regex: where, $options: "i" }
+//.estimatedDocumentCount()
