@@ -233,5 +233,3 @@ exports.updateDocument = function(newDoc) {
         });
     });
 };
-//location: { $regex: where, $options: "i" }
-//.estimatedDocumentCount()
