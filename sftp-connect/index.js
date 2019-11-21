@@ -8,11 +8,15 @@ sftp
         username: "root",
         password: "7y6c4a0k"
     })
-    .then(data => {
-        console.log(data, 111);
-        sftp.list("/mnt/volume_sgp1_01/logs/").then(data => {
-            data.map();
-        });
+    .then(async data => {
+        let list = [];
+        await sftp
+            .list("/mnt/volume_sgp1_01/logs/")
+            .then(data => {
+                data.map(item => console.log(item));
+            })
+            .catch(err => console.log(err));
+        //console.log(list);
         //return sftp.list('/pathname');
     })
     .catch(err => {
