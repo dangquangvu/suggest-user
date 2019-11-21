@@ -9,13 +9,16 @@ var morgan = require("morgan");
 
 // Connect to MongoDB
 require("./models");
+
 //config
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
+app.use(express.static(__dirname + "/views"));
 
 //config
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(morgan("dev"));
-
 //config router
 app.use("/", require("./routes/router.js"));
 
