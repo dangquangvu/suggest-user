@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "solar-study-260001",
+  "private_key_id": "428b1f7389e51094341d0ea67b2de0a707385022",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCtHDVoYD2ZqobH\nLEn6uNKkuGqFscR+f8hskvb1MBmThjDgwbGKZ7bGqrvZPZDeOkAda2heMQ85ihHz\nnDnrtRzUkkf/7lLxLfynuMvalOqJcdFr1AVTyIvgnZVozydT6sUiDM/uqDb7i4Ad\nmCvKTatLN17Aao8yAliIziWniBXmEgScZB6WpPHAahZKmuhTehECYi9fsHmsPVYo\njiC6ZNHxfXDOJIFL+lRyjzTRBHsoMqvqvtshlAnIo3inDh9VZJlHFjFWXfvHp/z9\nulK1YeGtkuequKduzXvWJFEc+S5YFagClBy6WM4e0fn+YjKC9OOiOYeP7xdhqV7F\n5hq6axP/AgMBAAECggEAKbmdY+min2nbb6GMuVqYJyzuPAhjoMwDDqyDywiLeaQE\nHwCA3yfthcg8W/n7c50dvBmZ/+4aSdeuSQY0bcxrRQ93PEiBBHH9rp2bwTVYrMVa\n4X8qw42YrYy+KROZWqBBYNouuksgaZQvzrJRh8Md0RTpCT8GAdtP5LWvnMhv4tK6\nd4kp3pE+1j0jtTO14mY9jzgt22FSgHUA/oKg//FtqpyKijEG326e8ofGdjmIQHX0\nKfLlnVo5Or6rok6YyG/FtQYTxSzEpG7lcb+D2zq311AWk4lMHvzgLPzuFvOVK+Vd\n9lYwPytD7d6WmgdLaCCJds5s+VsyM/3xuulo1/P6mQKBgQDXsPDy/edjj7ZZf0Vc\nsl0LDzuTS9TC7QRZKRc1Orb5FC6F5VyoY76uEBHMn62fYcAldCBr40Qfp2g0L41u\nw9Y6XdvSEJPbkfRAsAAWL0qRWn3QTJKiHN13nsdtIPnDvQSMI+Gns3BW7J/kwRX0\n6+Jwc+2ZtpVLFVFcYN6zVFsuSQKBgQDNdh2ODZ38ygdSSDhIrAazMaNEE86GI+lB\nRBZdGjzv8w/Gr1Id6+2YWQetgZ3NGcSPAWxfcDrJ3z3nJOuwbico5Ciz5ZsIpqJC\nXc37XPVvCN4bD40GOyjwFRXPK2XYYNRauuttq/WIxPlk+L9i2WmpZJKbiJfJFhuM\nf1hsGcZQBwKBgQDFiYqSsJDbMQIrIxFuXPgzqcbBFuELiLDDy4syt8xdf+s/u5jJ\nq1g16Ae1JMSJRKgKZTlQNbrtVo9rw+U+/WJU4CLzVzVjEV/mYoohxzv+tSamv4pH\nqDH4XNV+D4ZPiuwAQNhok0EeiuXBRkkKn4IpxTJk5cADHMn/1cP/7xD26QKBgA9W\nLcaYxZ5FBl7h/TGPhcCCiAlg4R2qOJMinfi9KKdQoXDXTW3mWonwu138OudAcSer\nl4dYPUssWtaSLvWwg0POJCupi/UNWzdRATsuKTPsmYezlXdNmzSwnjwkpSmNsMxE\n/6XkHCPlcChVWRPr3rNCSp9Jhur/t3a5WsRW+DKpAoGBAMbuBoBDfIqtYmDn9kv1\nmfJ/vJsTtR6DWALkuc7YKdQJc+bmlPE66E5HpKyZiQuxYrAogCVuukuA+k8QmVvL\n2XH7rzuxd95WhNkMPsrk0pCu9W0cBv7hVTK3NpSI0nSnvW+Uj8ZUM1MtR+MIbEt+\nHD+4bw2afQHnpUTLbjk6mOo1\n-----END PRIVATE KEY-----\n",
+  "client_email": "googledriverapi@solar-study-260001.iam.gserviceaccount.com",
+  "client_id": "113311634690111716225",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/googledriverapi%40solar-study-260001.iam.gserviceaccount.com"
+}

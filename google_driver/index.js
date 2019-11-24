@@ -1,19 +1,16 @@
-const { google } = require("googleapis");
-const readline = require("readline");
 const fs = require("fs");
-require("./credentials.json");
+const readline = require("readline");
+const { google } = require("googleapis");
 
-// If modifying these scopes, delete token.json.
-const SCOPES = "https://www.googleapis.com/auth/drive.metadata.readonly";
-// The file token.json stores the user's access and refresh tokens, and is
-// created automatically when the authorization flow completes for the first
-// time.
-const TOKEN_PATH = "./token.json";
+// If modifying these scopes, delete credentials.json.
+const SCOPES = ["https://www.googleapis.com/auth/drive"];
+const TOKEN_PATH = "credentials2.json";
 
 // Load client secrets from a local file.
-fs.readFile("./credentials.json", (err, content) => {
+fs.readFile("token.json", (err, content) => {
     if (err) return console.log("Error loading client secret file:", err);
     // Authorize a client with credentials, then call the Google Drive API.
+    console.log(JSON.parse(content));
     authorize(JSON.parse(content), listFiles);
 });
 
@@ -58,11 +55,11 @@ function getAccessToken(oAuth2Client, callback) {
     rl.question("Enter the code from that page here: ", code => {
         rl.close();
         oAuth2Client.getToken(code, (err, token) => {
-            if (err) return console.error("Error retrieving access token", err);
+            if (err) return callback(err);
             oAuth2Client.setCredentials(token);
             // Store the token to disk for later program executions
             fs.writeFile(TOKEN_PATH, JSON.stringify(token), err => {
-                if (err) return console.error(err);
+                if (err) console.error(err);
                 console.log("Token stored to", TOKEN_PATH);
             });
             callback(oAuth2Client);
@@ -70,26 +67,41 @@ function getAccessToken(oAuth2Client, callback) {
     });
 }
 
-/**
- * Lists the names and IDs of up to 10 files.
- * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
- */
 function listFiles(auth) {
-    const drive = google.drive({ version: "v3", auth });
+    var drive = google.drive({ version: "v3", auth: auth });
+    getFolderTree(drive, "", []);
+}
+
+function getFolderTree(drive, nextPageToken, folderList) {
     drive.files.list({
-            pageSize: 10,
-            fields: "nextPageToken, files(id, name)"
+            pageToken: nextPageToken ? nextPageToken : "",
+            pageSize: 1000,
+            q: "mimeType='application/vnd.google-apps.folder'",
+            fields: "files(id,name,parents),nextPageToken"
         },
-        (err, res) => {
+        (err, { data }) => {
             if (err) return console.log("The API returned an error: " + err);
-            const files = res.data.files;
-            if (files.length) {
-                console.log("Files:");
-                files.map(file => {
-                    console.log(`${file.name} (${file.id})`);
-                });
+            const token = data.nextPageToken;
+            Array.prototype.push.apply(folderList, data.files);
+            if (token) {
+                getFolderTree(drive, token, folderList);
             } else {
-                console.log("No files found.");
+                // This script retrieves a folder tree under this folder ID.
+                const folderId = "### Top folder ID ###";
+
+                const folderTree = (function c(folder, folderSt, res) {
+                    let ar = folderList.filter(e => e.parents[0] == folder);
+                    folderSt += folder + "#_aabbccddee_#";
+                    let arrayFolderSt = folderSt.split("#_aabbccddee_#");
+                    arrayFolderSt.pop();
+                    res.push(arrayFolderSt);
+                    ar.length == 0 && (folderSt = "");
+                    ar.forEach(e => c(e.id, folderSt, res));
+                    return res;
+                })(folderId, "", []);
+
+                // Output the folder tree.
+                console.log(folderTree);
             }
         }
     );
